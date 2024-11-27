@@ -1,5 +1,4 @@
-module Main where
-import System.Environment (getArgs)
+module Json where
 
 data JSON = Null
           | Bool   Bool
@@ -88,12 +87,3 @@ parseJSON' [] = Nothing
 parseJSON :: String -> Maybe JSON
 parseJSON str = do (json, rest) <- parseJSON' str
                    Just json
-
-main :: IO ()
-main = do args <- getArgs
-          if args == []
-            then putStrLn "arg filename required"
-            else do json <- readFile (head args)
-                    case parseJSON json of
-                      Just j  -> print j
-                      Nothing -> putStrLn "Invalid JSON"
