@@ -13,6 +13,7 @@ common warnings
 library
     import:           warnings
     exposed-modules:  Json
+    other-modules:    JsonParse JsonStructure
     build-depends:    base
     hs-source-dirs:   lib
     default-language: Haskell2010
